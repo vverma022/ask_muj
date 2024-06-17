@@ -1,5 +1,6 @@
-![MUJ_ASK Background Removed](https://github.com/vverma022/ask_muj/assets/109036913/6285fad9-1e1a-418c-801a-37cfef618488)
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+![MUJ_ASK Background Removed-2](https://github.com/vverma022/ask_muj/assets/109036913/a25fe89c-7f61-4afa-9ac3-29f0def58784)
+This is a [Next.js](https://nextjs.or
+g/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
 
