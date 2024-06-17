@@ -1,6 +1,6 @@
-                                     ![MUJ_ASK Background Removed-2](https://github.com/vverma022/ask_muj/assets/109036913/a25fe89c-7f61-4afa-9ac3-29f0def58784)
-
-
+<p align="center">
+  <img src="https://github.com/vverma022/ask_muj/assets/109036913/a25fe89c-7f61-4afa-9ac3-29f0def58784" alt="MUJ_ASK Logo" width="300"/>
+</p>
 
 This is a [Next.js](https://nextjs.or
 g/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
