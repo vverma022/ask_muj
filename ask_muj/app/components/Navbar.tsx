@@ -15,14 +15,13 @@ export async function Navbar() {
     const user = await getUser();
     return (
       <nav className="h-[10vh] w-full flex items-center border-b px-5 lg:px-14 justify-between">
-        <Link href="/" className="flex items-center gap-x-3">
+        <Link href="/" className="flex items-center">
           <Image
             src={logo}
             alt="Logo icon"
             className="h-10 w-fit"
           />
         </Link>
-  
         <div className="flex items-center gap-x-4">
           <ThemeToggle />
           {user ? (
