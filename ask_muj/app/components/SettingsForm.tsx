@@ -45,7 +45,7 @@ export function SettingsForm({
       <Separator className="my-4" />
       <Label className="text-lg">Username</Label>
       <p className="text-muted-foreground">
-        In this Settings page you can change your username!
+        Here you can change your username. Remeber that this will be visible to the public so choose wisely.
       </p>
 
       <Input

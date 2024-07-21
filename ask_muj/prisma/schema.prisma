@@ -20,4 +20,16 @@ model User {
   imageUrl  String?
   username  String?  @unique
   createdAt DateTime @default(now())
+  createdCommunities Community[]
+}
+
+model Community {
+  id          String   @id @default(uuid())
+  name        String   @unique
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  User        User?    @relation(fields: [userId], references: [id])
+  userId      String?
+
 }
