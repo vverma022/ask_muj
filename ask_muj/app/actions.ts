@@ -4,6 +4,7 @@ import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { redirect } from "next/navigation";
 import prisma from "./lib/db";
 import { Prisma } from "@prisma/client";
+import { JSONContent } from "@tiptap/react";
 
 
 export async function updateUsername(prevState: any, formData: FormData) {
@@ -107,4 +108,32 @@ export async function updateCommunityDescription(prevState: any, formData: FormD
       message: "Sorry something went wrong!",
     };
   }
+}
+
+export async function createPost(
+  { jsonContent }: { jsonContent: JSONContent | null },
+  formData: FormData
+) {
+  const { getUser } = getKindeServerSession();
+  const user = await getUser();
+
+  if (!user) {
+    return redirect("/api/auth/login");
+  }
+
+  const title = formData.get("title") as string;
+  const imageUrl = formData.get("imageUrl") as string | null;
+  const CommunityName = formData.get("communityname") as string;
+
+  const data = await prisma.post.create({
+    data: {
+      title: title,
+      imageString: imageUrl ?? undefined,
+      CommunityName: CommunityName,
+      userId: user.id,
+      textContent: jsonContent ?? undefined,
+    },
+  });
+
+  return redirect(`/post/${data.id}`);
 }

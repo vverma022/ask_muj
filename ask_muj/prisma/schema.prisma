@@ -21,6 +21,11 @@ model User {
   username  String?  @unique
   createdAt DateTime @default(now())
   createdCommunities Community[]
+
+  Vote      Vote[]
+  Comment   Comemnt[]
+
+  posts Post[]
 }
 
 model Community {
@@ -32,4 +37,49 @@ model Community {
   User        User?    @relation(fields: [userId], references: [id])
   userId      String?
 
+  posts Post[]
+}
+
+model Post {
+  id          String  @id @default(uuid())
+  title       String
+  textContent Json?
+  imageString String?
+
+  Vote    Vote[]
+  Comment Comemnt[]
+
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  Community Community? @relation(fields: [CommunityName], references: [name])
+  CommunityName  String?
+  User      User?      @relation(fields: [userId], references: [id])
+  userId    String?
+}
+
+enum TypeOfVote {
+  UP
+  DOWN
+}
+
+model Vote {
+  id String @id @default(uuid())
+
+  Post   Post?   @relation(fields: [postId], references: [id])
+  postId String?
+  User   User?   @relation(fields: [userId], references: [id])
+  userId String?
+
+  voteType TypeOfVote
+}
+
+model Comemnt {
+  id        String   @id @default(uuid())
+  text      String
+  createdAt DateTime @default(now())
+
+  User   User?   @relation(fields: [userId], references: [id])
+  userId String?
+  Post   Post?   @relation(fields: [postId], references: [id])
+  postId String?
 }

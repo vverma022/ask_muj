@@ -16,7 +16,7 @@ const initalState = {
   status: "",
 };
 
-export default function CommunityPage() {
+export default function SubredditPage() {
   const [state, formAction] = useFormState(createCommunity, initalState);
   const { toast } = useToast();
 
@@ -32,7 +32,7 @@ export default function CommunityPage() {
   return (
     <div className="max-w-[1000px] mx-auto  flex flex-col mt-4">
       <form action={formAction}>
-        <h1 className="text-3xl font-bold tracking-tight">
+        <h1 className="text-3xl font-extrabold tracking-tight">
           Create Community
         </h1>
         <Separator className="my-4" />
@@ -40,10 +40,7 @@ export default function CommunityPage() {
         <p className="text-muted-foreground">
           Community names including capitalization cannot be changed!
         </p>
-
         <div className="relative mt-3">
-          <p className="absolute left-0 w-8 flex items-center justify-center h-full text-muted-foreground">
-          </p>
           <Input
             name="name"
             required
