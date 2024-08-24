@@ -23,7 +23,7 @@ model User {
   createdCommunities Community[]
 
   Vote      Vote[]
-  Comment   Comemnt[]
+  Comment   Comment[]
 
   posts Post[]
 }
@@ -47,7 +47,7 @@ model Post {
   imageString String?
 
   Vote    Vote[]
-  Comment Comemnt[]
+  Comment Comment[]
 
   createdAt DateTime   @default(now())
   updatedAt DateTime   @updatedAt
@@ -73,7 +73,7 @@ model Vote {
   voteType TypeOfVote
 }
 
-model Comemnt {
+model Comment {
   id        String   @id @default(uuid())
   text      String
   createdAt DateTime @default(now())

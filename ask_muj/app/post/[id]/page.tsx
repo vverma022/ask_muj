@@ -25,7 +25,7 @@ async function getData(id: string) {
       title: true,
       imageString: true,
       textContent: true,
-      subName: true,
+      CommunityName: true,
       id: true,
       Vote: {
         select: {
@@ -42,12 +42,12 @@ async function getData(id: string) {
           User: {
             select: {
               imageUrl: true,
-              userName: true,
+              username: true,
             },
           },
         },
       },
-      Subreddit: {
+      Community: {
         select: {
           name: true,
           createdAt: true,
@@ -56,7 +56,7 @@ async function getData(id: string) {
       },
       User: {
         select: {
-          userName: true,
+          username: true,
         },
       },
     },
@@ -97,7 +97,7 @@ export default async function PostPage({ params }: { params: { id: string } }) {
 
           <div className="p-2 w-full">
             <p className="text-xs text-muted-foreground">
-              Posted by u/{data.User?.userName}
+              Posted by u/{data.User?.username}
             </p>
 
             <h1 className="font-medium mt-1 text-lg">{data.title}</h1>
@@ -144,7 +144,7 @@ export default async function PostPage({ params }: { params: { id: string } }) {
                     />
 
                     <h3 className="text-sm font-medium">
-                      {item.User?.userName}
+                      {item.User?.username}
                     </h3>
                   </div>
 
@@ -164,19 +164,19 @@ export default async function PostPage({ params }: { params: { id: string } }) {
           <div className="p-4">
             <div className="flex items-center gap-x-3">
               <Image
-                src={`https://avatar.vercel.sh/${data?.subName}`}
+                src={`https://avatar.vercel.sh/${data?.CommunityName}`}
                 alt="Image of subreddit"
                 width={60}
                 height={60}
                 className="rounded-full h-16 w-16"
               />
-              <Link href={`/r/${data?.subName}`} className="font-medium">
-                r/{data?.subName}
+              <Link href={`/r/${data?.CommunityName}`} className="font-medium">
+                r/{data?.CommunityName}
               </Link>
             </div>
 
             <p className="text-sm font-normal text-secondary-foreground mt-2">
-              {data?.Subreddit?.description}
+              {data?.Community?.description}
             </p>
 
             <div className="flex items-center gap-x-2 mt-4">
@@ -194,7 +194,7 @@ export default async function PostPage({ params }: { params: { id: string } }) {
 
             <Separator className="my-5" />
             <Button asChild className="rounded-full w-full">
-              <Link href={`/r/${data?.subName}/create`}>Create Post</Link>
+              <Link href={`/r/${data?.CommunityName}/create`}>Create Post</Link>
             </Button>
           </div>
         </Card>

@@ -2,7 +2,7 @@
 
 import { Textarea } from "@/components/ui/textarea";
 import { SaveButton } from "./SubmitButton";
-import { updateSubDescription } from "../actions";
+import { updateCommunityDescription } from "../actions";
 import { useFormState } from "react-dom";
 import { useEffect } from "react";
 import { useToast } from "@/components/ui/use-toast";
@@ -18,7 +18,7 @@ const initalState = {
 };
 
 export function SubDescriptionForm({ description, subName }: iAppProps) {
-  const [state, formAction] = useFormState(updateSubDescription, initalState);
+  const [state, formAction] = useFormState(updateCommunityDescription, initalState);
   const { toast } = useToast();
 
   useEffect(() => {
